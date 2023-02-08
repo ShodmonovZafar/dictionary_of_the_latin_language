@@ -55,7 +55,7 @@ class Gui():
         """"____"""
         
         # 1-mighty.
-        self.mg = ttk.LabelFrame(self.tab1, text=" Mighty Python ")
+        self.mg = ttk.LabelFrame(self.tab1, text=" Lotin -> O'zbek ")
         self.mg.grid(column=0, row=0, padx=10, pady=10)
     
     def widjetlar(self):
@@ -65,22 +65,22 @@ class Gui():
 
         ## 1-label.
         self.style = ttk.Style()
-        self.style.configure("BW.TLabel", foreground="white", background="black")
-        self.lb = ttk.Label(self.mg, width=12, text="So'z : ", style="BW.TLabel")
-        self.lb.grid(column=0, row=0, padx=4, pady=4)
+        self.style.configure("BW.TLabel", foreground="white", background="#012352")
+        self.lb = ttk.Label(self.mg, width=40, text="", style="BW.TLabel")
+        self.lb.grid(column=0, row=2, padx=4, pady=4)
 
         # 2-widjet turi: Button.
         
         ## 1-button.
         self.bt = ttk.Button(self.mg, text="OK", command=self.bt_funk)
-        self.bt.grid(column=2, row=0, padx=4, pady=4)
+        self.bt.grid(column=0, row=1, padx=4, pady=4)
         
         # 3-widjet turi: Entry.
 
         ## 1-entry.
         self.et_str = tk.StringVar()
-        self.et = ttk.Entry(self.mg, width=12, textvariable=self.et_str)
-        self.et.grid(column=1, row=0)
+        self.et = ttk.Entry(self.mg, width=40, textvariable=self.et_str)
+        self.et.grid(column=0, row=0)
         
         ### 1-entry-ga focus-ni o'ratish.
         self.et.focus()
@@ -88,78 +88,77 @@ class Gui():
         # 4-widjet turi: Combobox.
 
         ## 1-combobox.
-        self.cb_str = tk.StringVar()
-        self.cb = ttk.Combobox(self.mg, width=12, textvariable=self.cb_str)
-        self.cb["values"] = (1996, 1997, 1998, 1999, 2000)
-        self.cb.grid(column=0, row=1)
-        self.cb.current(0)
+        # self.cb_str = tk.StringVar()
+        # self.cb = ttk.Combobox(self.mg, width=12, textvariable=self.cb_str)
+        # self.cb["values"] = (1996, 1997, 1998, 1999, 2000)
+        # self.cb.grid(column=0, row=1)
+        # self.cb.current(0)
 
         ## 2-combobox.
-        self.cb1_str = tk.StringVar()
-        self.cb1 = ttk.Combobox(self.mg, width=12, textvariable=self.cb1_str, state="readonly")
-        self.cb1["values"] = (1996, 1997, 1998, 1999, 2000)
-        self.cb1.grid(column=1, row=1)
-        self.cb1.current(0)
+        # self.cb1_str = tk.StringVar()
+        # self.cb1 = ttk.Combobox(self.mg, width=12, textvariable=self.cb1_str, state="readonly")
+        # self.cb1["values"] = (1996, 1997, 1998, 1999, 2000)
+        # self.cb1.grid(column=1, row=1)
+        # self.cb1.current(0)
 
         # 5-widjet turi: Checkbutton.
 
         ## 1-checkbutton.
-        self.ch_var = tk.IntVar()
-        self.ch = tk.Checkbutton(self.mg, text="Nofaol", variable=self.ch_var, state=soz.NOFAOL)
-        self.ch.select()
-        self.ch.grid(column=0, row=3, sticky=soz.CHAP)
+        # self.ch_var = tk.IntVar()
+        # self.ch = tk.Checkbutton(self.mg, text="Nofaol", variable=self.ch_var, state=soz.NOFAOL)
+        # self.ch.select()
+        # self.ch.grid(column=0, row=3, sticky=soz.CHAP)
 
         ## 2-checkbutton.
-        self.ch1_var = tk.IntVar()
-        self.ch1 = tk.Checkbutton(self.mg, text="Belgilanmagan", variable=self.ch1_var)
-        self.ch1.deselect()
-        self.ch1.grid(column=1, row=3, sticky=soz.CHAP)
+        # self.ch1_var = tk.IntVar()
+        # self.ch1 = tk.Checkbutton(self.mg, text="Belgilanmagan", variable=self.ch1_var)
+        # self.ch1.deselect()
+        # self.ch1.grid(column=1, row=3, sticky=soz.CHAP)
 
         ## 3-checkbutton.
-        self.ch2_var = tk.IntVar()
-        self.ch2 = tk.Checkbutton(self.mg, text="Faol", variable=self.ch2_var)
-        self.ch2.select()
-        self.ch2.grid(column=2, row=3, sticky=soz.ONG)
+        # self.ch2_var = tk.IntVar()
+        # self.ch2 = tk.Checkbutton(self.mg, text="Faol", variable=self.ch2_var)
+        # self.ch2.select()
+        # self.ch2.grid(column=2, row=3, sticky=soz.ONG)
 
         # 6-widjet turi: Radiobutton.
 
         ## 1-radiobutton.
-        self.rb_var = tk.IntVar()
-        self.rb = tk.Radiobutton(self.mg, text="Ko'k", variable=self.rb_var, value=1, command=self.rb_funk)
-        self.rb.grid(column=0, row=5, sticky=soz.CHAP, columnspan=3)
+        # self.rb_var = tk.IntVar()
+        # self.rb = tk.Radiobutton(self.mg, text="Ko'k", variable=self.rb_var, value=1, command=self.rb_funk)
+        # self.rb.grid(column=0, row=5, sticky=soz.CHAP, columnspan=3)
 
         ## 2-radiobutton.
-        self.rb2 = tk.Radiobutton(self.mg, text="Oltin", variable=self.rb_var, value=2, command=self.rb_funk)
-        self.rb2.grid(column=1, row=5, sticky=soz.CHAP, columnspan=3)
+        # self.rb2 = tk.Radiobutton(self.mg, text="Oltin", variable=self.rb_var, value=2, command=self.rb_funk)
+        # self.rb2.grid(column=1, row=5, sticky=soz.CHAP, columnspan=3)
 
-        ## 3-radiobutton.
-        self.rb3 = tk.Radiobutton(self.mg, text="Qizil", variable=self.rb_var, value=3, command=self.rb_funk)
-        self.rb3.grid(column=2, row=5, sticky=soz.CHAP, columnspan=3)
+        # ## 3-radiobutton.
+        # self.rb3 = tk.Radiobutton(self.mg, text="Qizil", variable=self.rb_var, value=3, command=self.rb_funk)
+        # self.rb3.grid(column=2, row=5, sticky=soz.CHAP, columnspan=3)
 
         # 7-widjet turi: ScrolledText.
 
         ## 1-scrolledtext.
-        self.a = tk.WORD
-        self.st = scrolledtext.ScrolledText(self.mg, width=30, height=3, wrap=self.a)
-        self.st.grid(column=0, columnspan=3)
+        # self.a = tk.WORD
+        # self.st = scrolledtext.ScrolledText(self.mg, width=30, height=3, wrap=self.a)
+        # self.st.grid(column=0, columnspan=3)
         
     # widjetlar bilan bo'g'lanadigan funksiyalar.
 
     ## 1, 2, 3 -radiobutton bilan bog'landigan funksiya.
-    def rb_funk(self):
-        x = self.rb_var.get()
-        if x == 1:
-            self.asosiy_oyna.configure(bg=soz.KOK)
-        elif x == 2:
-            self.asosiy_oyna.configure(bg=soz.OLTIN)
-        elif x == 3:
-            self.asosiy_oyna.configure(bg=soz.QIZIL)
+    # def rb_funk(self):
+    #     x = self.rb_var.get()
+    #     if x == 1:
+    #         self.asosiy_oyna.configure(bg=soz.KOK)
+    #     elif x == 2:
+    #         self.asosiy_oyna.configure(bg=soz.OLTIN)
+    #     elif x == 3:
+    #         self.asosiy_oyna.configure(bg=soz.QIZIL)
 
     ## 1-button bilan bog'lanadigan funksiya.
     def bt_funk(self):
         natija = funk.lotinchadan_ozbekchaga(self.et_str.get(), LUGAT)
         self.lb.configure(text="{}".format(natija))
-        print(natija)
 
     def _yangi_hujjat(self):
         self.yangi_hujjat_oynasi = tk.Tk()
