@@ -57,6 +57,10 @@ class Gui():
         # 1-mighty.
         self.mg = ttk.LabelFrame(self.tab1, text=" Lotin -> O'zbek ")
         self.mg.grid(column=0, row=0, padx=10, pady=10)
+        
+        self.mg1 = ttk.LabelFrame(self.tab2, text=" O'zbek -> Lotin ")
+        self.mg1.grid(column=0, row=0, padx=10, pady=10)
+    
     
     def widjetlar(self):
         """_______"""
@@ -68,12 +72,23 @@ class Gui():
         self.style.configure("BW.TLabel", foreground="white", background="#012352")
         self.lb = ttk.Label(self.mg, width=40, text="", style="BW.TLabel")
         self.lb.grid(column=0, row=2, padx=4, pady=4)
+        
+        ## 2-label.
+        self.style1 = ttk.Style()
+        self.style1.configure("BW.TLabel", foreground="white", background="#012352")
+        self.lb1 = ttk.Label(self.mg1, width=40, text="", style="BW.TLabel")
+        self.lb1.grid(column=0, row=2, padx=4, pady=4)
+
 
         # 2-widjet turi: Button.
         
         ## 1-button.
         self.bt = ttk.Button(self.mg, text="OK", command=self.bt_funk)
         self.bt.grid(column=0, row=1, padx=4, pady=4)
+        
+        ## 2-button.
+        self.bt2 = ttk.Button(self.mg1, text="OK", command=self.bt2_funk)
+        self.bt2.grid(column=0, row=1, padx=4, pady=4)
         
         # 3-widjet turi: Entry.
 
@@ -84,6 +99,14 @@ class Gui():
         
         ### 1-entry-ga focus-ni o'ratish.
         self.et.focus()
+        
+        ## 2-entry.
+        self.et2_str = tk.StringVar()
+        self.et2 = ttk.Entry(self.mg1, width=40, textvariable=self.et2_str)
+        self.et2.grid(column=0, row=0)
+        
+        ### 1-entry-ga focus-ni o'ratish.
+        self.et2.focus()
 
         # 4-widjet turi: Combobox.
 
@@ -158,19 +181,28 @@ class Gui():
     ## 1-button bilan bog'lanadigan funksiya.
     def bt_funk(self):
         natija = funk.lotinchadan_ozbekchaga(self.et_str.get(), LUGAT)
+        if natija == 0:
+            natija = "Natija topilmadi!"
         self.lb.configure(text="{}".format(natija))
+        
+    def bt2_funk(self):
+        natija = funk.ozbekchadan_lotinchaga(self.et2_str.get(), LUGAT)
+        if natija == 0:
+            natija = "Natija topilmadi!"
+        self.lb1.configure(text="{}".format(natija))
 
     def _yangi_hujjat(self):
-        self.yangi_hujjat_oynasi = tk.Tk()
-        self.yangi_hujjat_oynasi.title("Yangi hujjat")
-        self.yangi_hujjat_oynasi.geometry("600x600")
-        self.yangi_hujjat_oynasi.resizable(False, False)
-        ## 1-scrolledtext.
-        self.a = tk.WORD
-        self.st1 = scrolledtext.ScrolledText(self.yangi_hujjat_oynasi, width=70, height=34, wrap=self.a)
-        self.st1.grid(column=0, columnspan=3, padx=20, pady=20)
+        # self.yangi_hujjat_oynasi = tk.Tk()
+        # self.yangi_hujjat_oynasi.title("Yangi hujjat")
+        # self.yangi_hujjat_oynasi.geometry("600x600")
+        # self.yangi_hujjat_oynasi.resizable(False, False)
+        # ## 1-scrolledtext.
+        # self.a = tk.WORD
+        # self.st1 = scrolledtext.ScrolledText(self.yangi_hujjat_oynasi, width=70, height=34, wrap=self.a)
+        # self.st1.grid(column=0, columnspan=3, padx=20, pady=20)
         
-        self.yangi_hujjat_oynasi.mainloop()
+        # self.yangi_hujjat_oynasi.mainloop()
+        pass
     
     def _chiqish(self):
         self.asosiy_oyna.quit()
@@ -178,11 +210,10 @@ class Gui():
         exit()
     
     def _msgBox(self):
-        # msg.showinfo("Python Message Info Box", "A Python GUI created using tkinter:\n The year in 2022.")
+        msg.showinfo("Lotin vs O'zbek lug'ati ", "Dastur yaratuvchisi: Shodmonov Zafar\n 2023-yilda yaratildi.\n Telefon nomer: +998-99-772-33-28")
         # msg.showwarning("Python Message Warning Box", "A Python GUI created using tkinter:\nWarning: There might be a bug in this code.")
         # msg.showerror("Python Message Error Box", "A Python GUI created using tkinter:\nError: Houston ~ we DO have a serius PROBLEM!")
-        answer = msg.askyesnocancel("Python Message Multi Choice Box", "Are you sure you really wish to do this?")
-        print(answer)
+        # answer = msg.askyesnocancel("Python Message Mul")
     
     def menyu_qatori(self):
         """____"""
