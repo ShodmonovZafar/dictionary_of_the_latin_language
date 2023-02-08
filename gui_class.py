@@ -1,6 +1,7 @@
 import tkinter as tk
 import gui_funksiyalari as funk
 from gui_sozlamalari import Sozlamalar
+from lugat_modul import LUGAT
 from tkinter import ttk
 from tkinter import scrolledtext
 from tkinter import Menu
@@ -42,11 +43,11 @@ class Gui():
         
         # 1-tab.
         self.tab1 = ttk.Frame(self.tab_control)  # Create a tab.
-        self.tab_control.add(self.tab1, text="Tab 1")  # Add the tab.
+        self.tab_control.add(self.tab1, text=soz.tab_1_nomi)  # Add the tab.
         
         # 2-tab.
         self.tab2 = ttk.Frame(self.tab_control)  # Create a tab.
-        self.tab_control.add(self.tab2, text="Tab 2")  # Add the tab.
+        self.tab_control.add(self.tab2, text=soz.tab_2_nomi)  # Add the tab.
         
         self.tab_control.pack(expand=1, fill="both")
     
@@ -65,7 +66,7 @@ class Gui():
         ## 1-label.
         self.style = ttk.Style()
         self.style.configure("BW.TLabel", foreground="white", background="black")
-        self.lb = ttk.Label(self.mg, width=12, text="1-label", style="BW.TLabel")
+        self.lb = ttk.Label(self.mg, width=12, text="So'z : ", style="BW.TLabel")
         self.lb.grid(column=0, row=0, padx=4, pady=4)
 
         # 2-widjet turi: Button.
@@ -156,7 +157,9 @@ class Gui():
 
     ## 1-button bilan bog'lanadigan funksiya.
     def bt_funk(self):
-        pass
+        natija = funk.lotinchadan_ozbekchaga(self.et_str.get(), LUGAT)
+        self.lb.configure(text="{}".format(natija))
+        print(natija)
 
     def _yangi_hujjat(self):
         self.yangi_hujjat_oynasi = tk.Tk()

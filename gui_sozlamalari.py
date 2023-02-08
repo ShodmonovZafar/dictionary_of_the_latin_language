@@ -4,7 +4,7 @@ class Sozlamalar:
     def __init__(self):
 
         # GUI sozlamalari
-        self.asosiy_oyna_nomi = "** TUB SONLAR **"
+        self.asosiy_oyna_nomi = "** LOTIN TILI LUG'ATI **"
         self.asosiy_oyna_balandligi = 300
         self.asosiy_oyna_kengligi = 300
 
@@ -26,4 +26,8 @@ class Sozlamalar:
         self.KOK = "Blue"
         self.OLTIN = "Gold"
         self.QIZIL = "Red"
+        
+        # tab 1 sozlamalari.
+        self.tab_1_nomi = "Lotin -> O'zbek"
+        self.tab_2_nomi = "O'zbek -> Lotin"
         
