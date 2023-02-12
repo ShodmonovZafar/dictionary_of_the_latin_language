@@ -83,7 +83,9 @@ class Gui():
         # 2-widjet turi: Button.
         
         ## 1-button.
-        self.bt = ttk.Button(self.mg, text="OK", command=self.bt_funk)
+        self.bt1_style = ttk.Style()
+        self.bt1_style.configure("BW.TButton", background="red", foreground="blue", collor="red")
+        self.bt = ttk.Button(self.mg, text="OK", command=self.bt_funk, style="BW.TButton")
         self.bt.grid(column=0, row=1, padx=4, pady=4)
         
         ## 2-button.
