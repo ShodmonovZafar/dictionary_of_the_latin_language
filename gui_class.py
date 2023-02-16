@@ -33,33 +33,43 @@ class Gui():
         # Asosiy oyna sozlamalari.
 
         ## Asosiy oyna orqa fon rangini belgilash.
-        self.asosiy_oyna.configure(bg=soz.asosiy_oyna_orqa_fon_rangi)
+        self.asosiy_oyna.configure(bg=soz.asosiy_oyna_orqa_fon_rangi, padx=10, pady=10)
         self.KOD = None
 
     def tab_control(self):
         """____"""
+
+        self.frame1_style1 = ttk.Style()
+        self.frame1_style1.configure("BM.TFrame", background="#343A37")
+
+        self.notebook1_style1 = ttk.Style()
+        self.notebook1_style1.configure("BM.TNotebook", background="#DAD8DC")
         
         # 1-notebook.
-        self.tab_control = ttk.Notebook(self.asosiy_oyna)  # Create Tab Control.
+        self.tab_control = ttk.Notebook(self.asosiy_oyna, padding=10, style="BM.TNotebook")  # Create Tab Control.
         
         # 1-tab.
-        self.tab1 = ttk.Frame(self.tab_control)  # Create a tab.
+        self.tab1 = ttk.Frame(self.tab_control, padding=10, style="BM.TFrame")  # Create a tab.
         self.tab_control.add(self.tab1, text=soz.tab_1_nomi)  # Add the tab.
         
         # 2-tab.
-        self.tab2 = ttk.Frame(self.tab_control)  # Create a tab.
+        self.tab2 = ttk.Frame(self.tab_control, padding=10, style="BM.TFrame")  # Create a tab.
         self.tab_control.add(self.tab2, text=soz.tab_2_nomi)  # Add the tab.
         
         self.tab_control.pack(expand=1, fill="both")
     
     def mighty(self):
         """"____"""
+
+        self.label_frame1_style1 = ttk.Style()
+        self.label_frame1_style1.configure("BM.TLabel", background="#DAD8DC")
+
         
         # 1-mighty.
-        self.mg = ttk.LabelFrame(self.tab1, text=" Lotin -> O'zbek ")
+        self.mg = ttk.LabelFrame(self.tab1, style="BM.TLabel")
         self.mg.grid(column=0, row=0, padx=10, pady=10)
         
-        self.mg1 = ttk.LabelFrame(self.tab2, text=" O'zbek -> Lotin ")
+        self.mg1 = ttk.LabelFrame(self.tab2, style="BM.TLabel")
         self.mg1.grid(column=0, row=0, padx=10, pady=10)
     
     
@@ -70,14 +80,14 @@ class Gui():
 
         ## 1-label.
         self.style = ttk.Style()
-        self.style.configure("BW.TLabel", foreground="white", background="#123456", textcollor="#000000")
-        self.lb = ttk.Label(self.mg, width=40, text="", style="BW.TLabel")
+        self.style.configure("BW.TLabel", foreground="white", background="#15150F", textcollor="#000000")
+        self.lb = ttk.Label(self.mg, width=50, text="", style="BW.TLabel")
         self.lb.grid(column=0, row=2, padx=4, pady=4)
         
         ## 2-label.
         self.style1 = ttk.Style()
-        self.style1.configure("BW.TLabel", foreground="white", background="#123456", textcollor="#000000")
-        self.lb1 = ttk.Label(self.mg1, width=40, text="", style="BW.TLabel")
+        self.style1.configure("BW.TLabel", foreground="white", background="#15150F", textcollor="#000000")
+        self.lb1 = ttk.Label(self.mg1, width=50, text="", style="BW.TLabel")
         self.lb1.grid(column=0, row=2, padx=4, pady=4)
 
 
@@ -97,7 +107,7 @@ class Gui():
 
         ## 1-entry.
         self.et_str = tk.StringVar()
-        self.et = ttk.Entry(self.mg, width=40, textvariable=self.et_str)
+        self.et = ttk.Entry(self.mg, width=50, textvariable=self.et_str)
         self.et.grid(column=0, row=0)
         
         ### 1-entry-ga focus-ni o'ratish.
@@ -105,7 +115,7 @@ class Gui():
         
         ## 2-entry.
         self.et2_str = tk.StringVar()
-        self.et2 = ttk.Entry(self.mg1, width=40, textvariable=self.et2_str)
+        self.et2 = ttk.Entry(self.mg1, width=50, textvariable=self.et2_str)
         self.et2.grid(column=0, row=0)
         
         ### 1-entry-ga focus-ni o'ratish.

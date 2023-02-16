@@ -1,8 +1,8 @@
 LUGAT = {
-    ("homo", "inis", "m") : "odam",
-    ("vesica", "ae", "f") : "pufak",
-    ("fundus", "i", "m") : "tub",
-    ("dorsum", "i", "n") : "orqa",
+    ("homo", "inis", "m", "ot") : "odam",
+    ("vesica", "ae", "f", "ot") : "pufak",
+    ("fundus", "i", "m", "ot") : "tub",
+    ("dorsum", "i", "n", "ot") : "orqa",
     ("auris","is","f","ot") : "quloq",
     ("bronchus","i","m","ot") : "Bronx",
     ("coccyx","this","m","ot") : "quyruq, dum",

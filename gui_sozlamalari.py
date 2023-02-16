@@ -6,10 +6,10 @@ class Sozlamalar:
         # GUI sozlamalari
         self.asosiy_oyna_nomi = " Lotin <-> O'zbek "
         self.asosiy_oyna_balandligi = 300
-        self.asosiy_oyna_kengligi = 300
+        self.asosiy_oyna_kengligi = 400
 
         # Orqa fon sozlamalari.
-        self.asosiy_oyna_orqa_fon_rangi = "#00ff00"
+        self.asosiy_oyna_orqa_fon_rangi = "#1B1C21"
 
         # O'zgarmaslar.
 
