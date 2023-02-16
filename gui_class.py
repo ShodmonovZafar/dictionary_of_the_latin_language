@@ -34,6 +34,7 @@ class Gui():
 
         ## Asosiy oyna orqa fon rangini belgilash.
         self.asosiy_oyna.configure(bg=soz.asosiy_oyna_orqa_fon_rangi)
+        self.KOD = None
 
     def tab_control(self):
         """____"""
@@ -69,13 +70,13 @@ class Gui():
 
         ## 1-label.
         self.style = ttk.Style()
-        self.style.configure("BW.TLabel", foreground="white", background="#012352")
+        self.style.configure("BW.TLabel", foreground="white", background="#123456", textcollor="#000000")
         self.lb = ttk.Label(self.mg, width=40, text="", style="BW.TLabel")
         self.lb.grid(column=0, row=2, padx=4, pady=4)
         
         ## 2-label.
         self.style1 = ttk.Style()
-        self.style1.configure("BW.TLabel", foreground="white", background="#012352")
+        self.style1.configure("BW.TLabel", foreground="white", background="#123456", textcollor="#000000")
         self.lb1 = ttk.Label(self.mg1, width=40, text="", style="BW.TLabel")
         self.lb1.grid(column=0, row=2, padx=4, pady=4)
 
@@ -182,22 +183,37 @@ class Gui():
 
     ## 1-button bilan bog'lanadigan funksiya.
     def bt_funk(self):
-        natija = funk.lotinchadan_ozbekchaga(self.et_str.get(), LUGAT)
-        if natija == 0:
-            natija = "Natija topilmadi!"
-        self.lb.configure(text="{}".format(natija))
+        if self.KOD != None:
+            natija = funk.lotinchadan_ozbekchaga(self.et_str.get(), LUGAT)
+            if natija == 0:
+                natija = "Natija topilmadi!"
+            self.lb.configure(text="{}".format(natija))
         
     def bt2_funk(self):
         natija = funk.ozbekchadan_lotinchaga(self.et2_str.get(), LUGAT)
         if natija == 0:
             natija = "Natija topilmadi!"
         self.lb1.configure(text="{}".format(natija))
+    
+    def kod_(self):
+        self.KOD = self.kod
+        self.yangi_hujjat_oynasi.destroy()
 
     def _yangi_hujjat(self):
-        # self.yangi_hujjat_oynasi = tk.Tk()
-        # self.yangi_hujjat_oynasi.title("Yangi hujjat")
-        # self.yangi_hujjat_oynasi.geometry("600x600")
-        # self.yangi_hujjat_oynasi.resizable(False, False)
+        self.yangi_hujjat_oynasi = tk.Tk()
+        self.yangi_hujjat_oynasi.title("Aktivlashtirish")
+        self.yangi_hujjat_oynasi.geometry("400x200")
+        self.yangi_hujjat_oynasi.resizable(False, False)
+        label1 = ttk.Label(self.yangi_hujjat_oynasi, text="Litsenziya olish uchun +998-99-772-33-28 nomer bilan bo'glaning.")
+        label1.grid(column=0, row=0, columnspan=2)
+        self.kod = tk.StringVar()
+        et = ttk.Entry(self.yangi_hujjat_oynasi, width=40, textvariable=self.kod)
+        et.grid(column=1, row=1)
+        label2 = ttk.Label(self.yangi_hujjat_oynasi, text="Kodni kiriting: ")
+        label2.grid(column=0, row=1)
+        button1 = ttk.Button(self.yangi_hujjat_oynasi, text="OK", command=self.kod_)
+        button1.grid(column=0, row=2)
+        
         # ## 1-scrolledtext.
         # self.a = tk.WORD
         # self.st1 = scrolledtext.ScrolledText(self.yangi_hujjat_oynasi, width=70, height=34, wrap=self.a)
