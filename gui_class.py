@@ -102,61 +102,8 @@ class Gui():
         self.entry2.grid(column=0, row=0)
         ### entry2-ga focus-ni o'ratish.
         self.entry2.focus()
- 
-    def button1_command1(self):
-        if self.KOD != None:
-            natija = funk.lotinchadan_ozbekchaga(self.et_str.get(), LUGAT)
-            if natija == 0:
-                natija = "Natija topilmadi!"
-            self.label1.configure(text="{}".format(natija))
-        
-    def button2_command1(self):
-        natija = funk.ozbekchadan_lotinchaga(self.et2_str.get(), LUGAT)
-        if natija == 0:
-            natija = "Natija topilmadi!"
-        self.label11.configure(text="{}".format(natija))
-    
-    def kod_(self):
-        self.KOD = self.kod
-        self.yangi_hujjat_oynasi.destroy()
 
-    def _yangi_hujjat(self):
-        self.yangi_hujjat_oynasi = tk.Tk()
-        self.yangi_hujjat_oynasi.title("Aktivlashtirish")
-        self.yangi_hujjat_oynasi.geometry("400x200")
-        self.yangi_hujjat_oynasi.resizable(False, False)
-        label1 = ttk.Label(self.yangi_hujjat_oynasi, text="Litsenziya olish uchun +998-99-772-33-28 nomer bilan bo'glaning.")
-        label1.grid(column=0, row=0, columnspan=2)
-        self.kod = tk.StringVar()
-        et = ttk.Entry(self.yangi_hujjat_oynasi, width=40, textvariable=self.kod)
-        et.grid(column=1, row=1)
-        label2 = ttk.Label(self.yangi_hujjat_oynasi, text="Kodni kiriting: ")
-        label2.grid(column=0, row=1)
-        button1 = ttk.Button(self.yangi_hujjat_oynasi, text="OK", command=self.kod_)
-        button1.grid(column=0, row=2)
-        
-        # ## 1-scrolledtext.
-        # self.a = tk.WORD
-        # self.st1 = scrolledtext.ScrolledText(self.yangi_hujjat_oynasi, width=70, height=34, wrap=self.a)
-        # self.st1.grid(column=0, columnspan=3, padx=20, pady=20)
-        
-        # self.yangi_hujjat_oynasi.mainloop()
-        pass
-    
-    def _chiqish(self):
-        self.asosiy_oyna.quit()
-        self.asosiy_oyna.destroy()
-        exit()
-    
-    def _msgBox(self):
-        msg.showinfo("Lotin vs O'zbek lug'ati ", "Dastur yaratuvchisi: Shodmonov Zafar\n 2023-yilda yaratildi.\n Telefon nomer: +998-99-772-33-28")
-        # msg.showwarning("Python Message Warning Box", "A Python GUI created using tkinter:\nWarning: There might be a bug in this code.")
-        # msg.showerror("Python Message Error Box", "A Python GUI created using tkinter:\nError: Houston ~ we DO have a serius PROBLEM!")
-        # answer = msg.askyesnocancel("Python Message Mul")
-    
-    def menyu_qatori(self):
-        """____"""
-        
+        # Menu
         # Menyu qatori-ni yaratish.
         self.menyu_qatori = Menu(self.asosiy_oyna)
         self.asosiy_oyna.config(menu=self.menyu_qatori)
@@ -171,7 +118,47 @@ class Gui():
         self.yordam_menyu = Menu(self.menyu_qatori, tearoff=0)
         self.menyu_qatori.add_cascade(label="Yordam", menu=self.yordam_menyu)
         self.yordam_menyu.add_command(label="Haqida", command=self._msgBox)
-
+ 
+    def button1_command1(self):
+        if self.KOD != None:
+            natija = funk.lotinchadan_ozbekchaga(self.et_str.get(), LUGAT)
+            if natija == 0:
+                natija = "Natija topilmadi!"
+            self.label1.configure(text="{}".format(natija))
+        
+    def button2_command1(self):
+        natija = funk.ozbekchadan_lotinchaga(self.et2_str.get(), LUGAT)
+        if natija == 0:
+            natija = "Natija topilmadi!"
+        self.label11.configure(text="{}".format(natija))
+    
+    def _yangi_hujjat(self):
+        # self.yangi_hujjat_oynasi = tk.Tk()
+        # self.yangi_hujjat_oynasi.title("Aktivlashtirish")
+        # self.yangi_hujjat_oynasi.geometry("400x200")
+        # self.yangi_hujjat_oynasi.resizable(False, False)
+        # label1 = ttk.Label(self.yangi_hujjat_oynasi, text="Litsenziya olish uchun +998-99-772-33-28 nomer bilan bo'glaning.")
+        # label1.grid(column=0, row=0, columnspan=2)
+        # self.kod = tk.StringVar()
+        # et = ttk.Entry(self.yangi_hujjat_oynasi, width=40, textvariable=self.kod)
+        # et.grid(column=1, row=1)
+        # label2 = ttk.Label(self.yangi_hujjat_oynasi, text="Kodni kiriting: ")
+        # label2.grid(column=0, row=1)
+        # button1 = ttk.Button(self.yangi_hujjat_oynasi, text="OK", command=self.kod_)
+        # button1.grid(column=0, row=2)
+        pass
+    
+    def _chiqish(self):
+        self.asosiy_oyna.quit()
+        self.asosiy_oyna.destroy()
+        exit()
+    
+    def _msgBox(self):
+        msg.showinfo("Lotin vs O'zbek lug'ati ", "Dastur yaratuvchisi: Shodmonov Zafar\n 2023-yilda yaratildi.\n Telefon nomer: +998-99-772-33-28")
+        # msg.showwarning("Python Message Warning Box", "A Python GUI created using tkinter:\nWarning: There might be a bug in this code.")
+        # msg.showerror("Python Message Error Box", "A Python GUI created using tkinter:\nError: Houston ~ we DO have a serius PROBLEM!")
+        # answer = msg.askyesnocancel("Python Message Mul")
+    
     def mainloop(self):
         self.asosiy_oyna.mainloop()
 
