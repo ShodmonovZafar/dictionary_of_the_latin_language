@@ -1,12 +1,7 @@
 import gui_class
-import tkinter as tk
-from tkinter import ttk
 
 def gui_main_funksiyasi():
-    
-    
     my_gui = gui_class.Gui()
-    
     my_gui.tab_control()
     my_gui.mighty()
     my_gui.widjetlar()
@@ -47,7 +42,4 @@ if __name__ == "__main__":
     #     label2.grid(column=0, row=1)
     #     button1 = ttk.Button(win, text="OK", command=kod_)
     #     button1.grid(column=0, row=2)
-        
-
-
     gui_main_funksiyasi()

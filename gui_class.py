@@ -11,10 +11,8 @@ from tkinter import messagebox as msg
 soz = Sozlamalar()
 
 class Gui():
-    """____"""
 
     def __init__(self):
-        """_____"""
         
         # Asosiy oynani yaratish.
         self.asosiy_oyna = tk.Tk()
@@ -36,174 +34,87 @@ class Gui():
         self.asosiy_oyna.configure(bg=soz.asosiy_oyna_orqa_fon_rangi, padx=10, pady=10)
         self.KOD = None
 
-    def tab_control(self):
-        """____"""
-
+        # Style
+        ## frame
         self.frame1_style1 = ttk.Style()
         self.frame1_style1.configure("BM.TFrame", background="#343A37")
-
+        ## notebook
         self.notebook1_style1 = ttk.Style()
         self.notebook1_style1.configure("BM.TNotebook", background="#DAD8DC")
-        
-        # 1-notebook.
-        self.tab_control = ttk.Notebook(self.asosiy_oyna, padding=10, style="BM.TNotebook")  # Create Tab Control.
-        
-        # 1-tab.
-        self.tab1 = ttk.Frame(self.tab_control, padding=10, style="BM.TFrame")  # Create a tab.
-        self.tab_control.add(self.tab1, text=soz.tab_1_nomi)  # Add the tab.
-        
-        # 2-tab.
-        self.tab2 = ttk.Frame(self.tab_control, padding=10, style="BM.TFrame")  # Create a tab.
-        self.tab_control.add(self.tab2, text=soz.tab_2_nomi)  # Add the tab.
-        
-        self.tab_control.pack(expand=1, fill="both")
-    
-    def mighty(self):
-        """"____"""
-
+        ## labelframe
         self.label_frame1_style1 = ttk.Style()
         self.label_frame1_style1.configure("BM.TLabel", background="#DAD8DC")
-
+        ## label
+        self.label1_style1 = ttk.Style()
+        self.label1_style1.configure("BW.TLabel", foreground="white", background="#15150F", textcollor="#000000")
+        ## button
+        self.button1_style1 = ttk.Style()
+        self.button1_style1.configure("BW.TButton", background="#050503", foreground="black", collor="red")
         
-        # 1-mighty.
-        self.mg = ttk.LabelFrame(self.tab1, style="BM.TLabel")
-        self.mg.grid(column=0, row=0, padx=10, pady=10)
+        # Notebook
+        ## notebook1
+        self.notebook1 = ttk.Notebook(self.asosiy_oyna, padding=10, label1_style1="BM.TNotebook")
         
-        self.mg1 = ttk.LabelFrame(self.tab2, style="BM.TLabel")
-        self.mg1.grid(column=0, row=0, padx=10, pady=10)
-    
-    
-    def widjetlar(self):
-        """_______"""
+        # Frame
+        ## frame1
+        self.frame1 = ttk.Frame(self.notebook1, padding=10, label1_style1="BM.TFrame")
+        self.notebook1.add(self.frame1, text=soz.tab_1_nomi)
+        ## frame2
+        self.frame2 = ttk.Frame(self.notebook1, padding=10, label1_style1="BM.TFrame")
+        self.notebook1.add(self.frame2, text=soz.tab_2_nomi)
 
-        # 1-widjet turi: Label.
+        self.notebook1.pack(expand=1, fill="both")
 
-        ## 1-label.
-        self.style = ttk.Style()
-        self.style.configure("BW.TLabel", foreground="white", background="#15150F", textcollor="#000000")
-        self.lb = ttk.Label(self.mg, width=50, text="", style="BW.TLabel")
-        self.lb.grid(column=0, row=2, padx=4, pady=4)
+        # LabelFrame
+        ## label_frame1
+        self.label_frame1 = ttk.LabelFrame(self.frame1, style="BM.TLabel")
+        self.label_frame1.grid(column=0, row=0, padx=10, pady=10)
+        ## label_frame2
+        self.label_frame2 = ttk.LabelFrame(self.frame2, style="BM.TLabel")
+        self.label_frame2.grid(column=0, row=0, padx=10, pady=10)
+
+        # Label
+        ## label1
+        self.label1 = ttk.Label(self.label_frame1, width=50, text="", style="BW.TLabel")
+        self.label1.grid(column=0, row=2, padx=4, pady=4)
+        ## label2
+        self.label2 = ttk.Label(self.label_frame1, width=50, text="", style="BW.TLabel")
+        self.label2.grid(column=0, row=2, padx=4, pady=4)
+
+        # Button
+        ## button1
+        self.button1 = ttk.Button(self.label_frame1, text="OK", command=self.button1_command1, style="BW.TButton")
+        self.button1.grid(column=0, row=1, padx=4, pady=4)
+        ## button2
+        self.button2 = ttk.Button(self.label_frame11, text="OK", command=self.button2_command1, style="BW.TButton")
+        self.button2.grid(column=0, row=1, padx=4, pady=4)
         
-        ## 2-label.
-        self.style1 = ttk.Style()
-        self.style1.configure("BW.TLabel", foreground="white", background="#15150F", textcollor="#000000")
-        self.lb1 = ttk.Label(self.mg1, width=50, text="", style="BW.TLabel")
-        self.lb1.grid(column=0, row=2, padx=4, pady=4)
-
-
-        # 2-widjet turi: Button.
-        
-        ## 1-button.
-        self.bt1_style = ttk.Style()
-        self.bt1_style.configure("BW.TButton", background="red", foreground="blue", collor="red")
-        self.bt = ttk.Button(self.mg, text="OK", command=self.bt_funk, style="BW.TButton")
-        self.bt.grid(column=0, row=1, padx=4, pady=4)
-        
-        ## 2-button.
-        self.bt2 = ttk.Button(self.mg1, text="OK", command=self.bt2_funk)
-        self.bt2.grid(column=0, row=1, padx=4, pady=4)
-        
-        # 3-widjet turi: Entry.
-
-        ## 1-entry.
-        self.et_str = tk.StringVar()
-        self.et = ttk.Entry(self.mg, width=50, textvariable=self.et_str)
-        self.et.grid(column=0, row=0)
-        
-        ### 1-entry-ga focus-ni o'ratish.
-        self.et.focus()
-        
-        ## 2-entry.
-        self.et2_str = tk.StringVar()
-        self.et2 = ttk.Entry(self.mg1, width=50, textvariable=self.et2_str)
-        self.et2.grid(column=0, row=0)
-        
-        ### 1-entry-ga focus-ni o'ratish.
-        self.et2.focus()
-
-        # 4-widjet turi: Combobox.
-
-        ## 1-combobox.
-        # self.cb_str = tk.StringVar()
-        # self.cb = ttk.Combobox(self.mg, width=12, textvariable=self.cb_str)
-        # self.cb["values"] = (1996, 1997, 1998, 1999, 2000)
-        # self.cb.grid(column=0, row=1)
-        # self.cb.current(0)
-
-        ## 2-combobox.
-        # self.cb1_str = tk.StringVar()
-        # self.cb1 = ttk.Combobox(self.mg, width=12, textvariable=self.cb1_str, state="readonly")
-        # self.cb1["values"] = (1996, 1997, 1998, 1999, 2000)
-        # self.cb1.grid(column=1, row=1)
-        # self.cb1.current(0)
-
-        # 5-widjet turi: Checkbutton.
-
-        ## 1-checkbutton.
-        # self.ch_var = tk.IntVar()
-        # self.ch = tk.Checkbutton(self.mg, text="Nofaol", variable=self.ch_var, state=soz.NOFAOL)
-        # self.ch.select()
-        # self.ch.grid(column=0, row=3, sticky=soz.CHAP)
-
-        ## 2-checkbutton.
-        # self.ch1_var = tk.IntVar()
-        # self.ch1 = tk.Checkbutton(self.mg, text="Belgilanmagan", variable=self.ch1_var)
-        # self.ch1.deselect()
-        # self.ch1.grid(column=1, row=3, sticky=soz.CHAP)
-
-        ## 3-checkbutton.
-        # self.ch2_var = tk.IntVar()
-        # self.ch2 = tk.Checkbutton(self.mg, text="Faol", variable=self.ch2_var)
-        # self.ch2.select()
-        # self.ch2.grid(column=2, row=3, sticky=soz.ONG)
-
-        # 6-widjet turi: Radiobutton.
-
-        ## 1-radiobutton.
-        # self.rb_var = tk.IntVar()
-        # self.rb = tk.Radiobutton(self.mg, text="Ko'k", variable=self.rb_var, value=1, command=self.rb_funk)
-        # self.rb.grid(column=0, row=5, sticky=soz.CHAP, columnspan=3)
-
-        ## 2-radiobutton.
-        # self.rb2 = tk.Radiobutton(self.mg, text="Oltin", variable=self.rb_var, value=2, command=self.rb_funk)
-        # self.rb2.grid(column=1, row=5, sticky=soz.CHAP, columnspan=3)
-
-        # ## 3-radiobutton.
-        # self.rb3 = tk.Radiobutton(self.mg, text="Qizil", variable=self.rb_var, value=3, command=self.rb_funk)
-        # self.rb3.grid(column=2, row=5, sticky=soz.CHAP, columnspan=3)
-
-        # 7-widjet turi: ScrolledText.
-
-        ## 1-scrolledtext.
-        # self.a = tk.WORD
-        # self.st = scrolledtext.ScrolledText(self.mg, width=30, height=3, wrap=self.a)
-        # self.st.grid(column=0, columnspan=3)
-        
-    # widjetlar bilan bo'g'lanadigan funksiyalar.
-
-    ## 1, 2, 3 -radiobutton bilan bog'landigan funksiya.
-    # def rb_funk(self):
-    #     x = self.rb_var.get()
-    #     if x == 1:
-    #         self.asosiy_oyna.configure(bg=soz.KOK)
-    #     elif x == 2:
-    #         self.asosiy_oyna.configure(bg=soz.OLTIN)
-    #     elif x == 3:
-    #         self.asosiy_oyna.configure(bg=soz.QIZIL)
-
-    ## 1-button bilan bog'lanadigan funksiya.
-    def bt_funk(self):
+        # Entry
+        ## entry1
+        self.entry1_string_var1 = tk.StringVar()
+        self.entry1 = ttk.Entry(self.label_frame1, width=50, textvariable=self.entry1_string_var1)
+        self.entry1.grid(column=0, row=0)
+        ### entry1-ga focus-ni o'ratish.
+        self.entry1.focus()
+        ## entry2
+        self.entry2_string_var1 = tk.StringVar()
+        self.entry2 = ttk.Entry(self.label_frame11, width=50, textvariable=self.entry2_string_var1)
+        self.entry2.grid(column=0, row=0)
+        ### entry2-ga focus-ni o'ratish.
+        self.entry2.focus()
+ 
+    def button1_command1(self):
         if self.KOD != None:
             natija = funk.lotinchadan_ozbekchaga(self.et_str.get(), LUGAT)
             if natija == 0:
                 natija = "Natija topilmadi!"
-            self.lb.configure(text="{}".format(natija))
+            self.label1.configure(text="{}".format(natija))
         
-    def bt2_funk(self):
+    def button2_command1(self):
         natija = funk.ozbekchadan_lotinchaga(self.et2_str.get(), LUGAT)
         if natija == 0:
             natija = "Natija topilmadi!"
-        self.lb1.configure(text="{}".format(natija))
+        self.label11.configure(text="{}".format(natija))
     
     def kod_(self):
         self.KOD = self.kod
