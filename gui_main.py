@@ -4,6 +4,16 @@ from tkinter import Menu
 from tkinter import messagebox as msg
 from pathlib import Path
 
+x = Path(".")
+for i in x.iterdir():
+    if i.is_file() and i.name == "kod.txt":
+        with open(i, "r") as f:
+            d = f.read()
+            if d == "":
+                KOD = False
+            else:
+                KOD = True
+
 LUGAT = {
     ("homo", "inis", "m", "ot") : "odam",
     ("vesica", "ae", "f", "ot") : "pufak",
@@ -88,11 +98,6 @@ def ozbekchadan_lotinchaga(ozbekcha: str, lugat: dict):
                 if ozbekcha == i:
                     return key
     return 0
-
-
-
-from gui_kod import KOD
-
 
 soz = Sozlamalar()
 
