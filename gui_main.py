@@ -4,9 +4,10 @@ from tkinter import Menu
 from tkinter import messagebox as msg
 from pathlib import Path
 
-x = Path(".")
-for i in x.iterdir():
-    if i.is_file() and i.name == "kod.txt":
+KOD = False
+path_to_the_text_file = Path(".")
+for i in path_to_the_text_file.iterdir():
+    if i.is_file() and i.name == "file_to_activate_the_program.txt":
         with open(i, "r") as f:
             d = f.read()
             if d == "":
@@ -217,8 +218,7 @@ class Gui():
             self.label1.configure(text="{}".format(natija))
         else:
             msg.showinfo("Eslatma!", "Dasturdan foydalanish uchun 'Litsenziya' olish kerak.\n 'Litsenziya' olish uchun +998-99-772-33-28 nomer bilan yoki uzbekdasturchisiman@gmail.com pochta manzili bilan bo'glaning.")
-        
-        
+               
     def button2_command1(self):
         if KOD:
             natija = ozbekchadan_lotinchaga(self.entry2_string_var1.get(), LUGAT)
@@ -227,8 +227,7 @@ class Gui():
             self.label2.configure(text="{}".format(natija))
         else:
             msg.showinfo("Eslatma!", "Dasturdan foydalanish uchun 'Litsenziya' olish kerak.\n 'Litsenziya' olish uchun +998-99-772-33-28 nomer bilan yoki uzbekdasturchisiman@gmail.com pochta manzili bilan bo'glaning.")
-        
-    
+         
     def _yangi_hujjat(self):
         kod1 = self.entry1_string_var1.get()
         kod2 = self.entry2_string_var1.get()
@@ -238,14 +237,10 @@ class Gui():
             pass
         else:
             if type(kod2) == str and type(int(kod1)) == int:
-                x = Path(".")
-                for i in x.iterdir():
-                    if i.is_file() and i.name == "kod.txt":
-                        with open(i, "w") as f:
-                            f.write("lu$jsgfqpe83LFsuw*-ndvacys")
-        
-                    
-    
+                path_to_the_text_file2 = "./file_to_activate_the_program.txt"
+                with open(path_to_the_text_file2, "w") as text_file2:
+                    text_file2.write("{}{}".format(kod2, kod1))
+                  
     def _chiqish(self):
         self.asosiy_oyna.quit()
         self.asosiy_oyna.destroy()
