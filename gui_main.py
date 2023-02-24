@@ -5,6 +5,7 @@ from tkinter import messagebox as msg
 from pathlib import Path
 
 KOD = False
+AKTIV = None
 path_to_the_text_file = Path(".")
 for i in path_to_the_text_file.iterdir():
     if i.is_file() and i.name == "file_to_activate_the_program.txt":
@@ -229,17 +230,21 @@ class Gui():
             msg.showinfo("Eslatma!", "Dasturdan foydalanish uchun 'Litsenziya' olish kerak.\n 'Litsenziya' olish uchun +998-99-772-33-28 nomer bilan yoki uzbekdasturchisiman@gmail.com pochta manzili bilan bo'glaning.")
          
     def _yangi_hujjat(self):
-        kod1 = self.entry1_string_var1.get()
-        kod2 = self.entry2_string_var1.get()
-        try:
-            x = int(kod1)
-        except:
+        if AKTIV or AKTIV1:
             pass
         else:
-            if type(kod2) == str and type(int(kod1)) == int:
-                path_to_the_text_file2 = "./file_to_activate_the_program.txt"
-                with open(path_to_the_text_file2, "w") as text_file2:
-                    text_file2.write("{}{}".format(kod2, kod1))
+            kod1 = self.entry1_string_var1.get()
+            kod2 = self.entry2_string_var1.get()
+            try:
+                x = int(kod1)
+            except:
+                pass
+            else:
+                if type(kod2) == str and type(int(kod1)) == int:
+                    path_to_the_text_file2 = "./file_to_activate_the_program.txt"
+                    with open(path_to_the_text_file2, "w") as text_file2:
+                        text_file2.write("{}{}".format(kod2, kod1))
+                    AKTIV1 = True
                   
     def _chiqish(self):
         self.asosiy_oyna.quit()
