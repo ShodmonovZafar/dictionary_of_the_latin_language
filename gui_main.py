@@ -56,7 +56,7 @@ class Sozlamalar:
         # GUI sozlamalari
         self.asosiy_oyna_nomi = " Lotin-O'zbek lug'ati"
         self.asosiy_oyna_balandligi = 300
-        self.asosiy_oyna_kengligi = 400
+        self.asosiy_oyna_kengligi = 370
 
         # Orqa fon sozlamalari.
         self.asosiy_oyna_orqa_fon_rangi = "#1B1C21"
@@ -77,9 +77,9 @@ class Sozlamalar:
         self.OLTIN = "Gold"
         self.QIZIL = "Red"
         
-        # tab 1 sozlamalari.
-        self.tab_1_nomi = "Lotin -> O'zbek"
-        self.tab_2_nomi = "O'zbek -> Lotin"
+        # frame-lar sozlamalari.
+        self.frame1_nomi = "Lotin -> O'zbek"
+        self.frame2_nomi = "O'zbek -> Lotin"
         
 
 def lotinchadan_ozbekchaga(lotincha: str, lugat: dict):
@@ -128,13 +128,10 @@ class Gui():
         # Style
         ## frame
         self.frame1_style1 = ttk.Style()
-        self.frame1_style1.configure("BM.TFrame", background="#343A37")
+        self.frame1_style1.configure("BM.TFrame", background="#DAD8DC")
         ## notebook
         self.notebook1_style1 = ttk.Style()
-        self.notebook1_style1.configure("BM.TNotebook", background="#DAD8DC")
-        ## labelframe
-        self.label_frame1_style1 = ttk.Style()
-        self.label_frame1_style1.configure("BM.TLabelframe", background="#DAD8DC")
+        self.notebook1_style1.configure("BM.TNotebook", background="#343A37")
         ## label
         self.label1_style1 = ttk.Style()
         self.label1_style1.configure("BW.TLabel", foreground="white", background="#15150F", textcollor="#000000")
@@ -149,50 +146,61 @@ class Gui():
         # Frame
         ## frame1
         self.frame1 = ttk.Frame(self.notebook1, padding=10, style="BM.TFrame")
-        self.notebook1.add(self.frame1, text=soz.tab_1_nomi)
+        self.notebook1.add(self.frame1, text=soz.frame1_nomi)
         ## frame2
         self.frame2 = ttk.Frame(self.notebook1, padding=10, style="BM.TFrame")
-        self.notebook1.add(self.frame2, text=soz.tab_2_nomi)
-
+        self.notebook1.add(self.frame2, text=soz.frame2_nomi)
         self.notebook1.pack(expand=1, fill="both")
 
-        # LabelFrame
-        ## label_frame1
-        self.label_frame1 = ttk.LabelFrame(self.frame1, style="BM.TLabelframe")
-        self.label_frame1.grid(column=0, row=0, padx=10, pady=10)
-        ## label_frame2
-        self.label_frame2 = ttk.LabelFrame(self.frame2, style="BM.TLabelframe")
-        self.label_frame2.grid(column=0, row=0, padx=10, pady=10)
+        # # LabelFrame
+        # ## label_frame1
+        # self.label_frame1 = ttk.LabelFrame(self.frame1, style="BM.TLabelframe")
+        # self.label_frame1.grid(column=0, row=1, padx=10, pady=10)
 
         # Label
         ## label1
-        self.label1 = ttk.Label(self.label_frame1, width=50, text="", style="BW.TLabel")
-        self.label1.grid(column=0, row=2, padx=4, pady=4)
-        ## label2
-        self.label2 = ttk.Label(self.label_frame2, width=50, text="", style="BW.TLabel")
-        self.label2.grid(column=0, row=2, padx=4, pady=4)
-
+        self.label1 = ttk.Label(self.frame1, width=50, text="", style="BW.TLabel")
+        self.label1.grid(column=0, row=2, columnspan=2, padx=4, pady=4)
+        ## label1
+        self.label2 = ttk.Label(self.frame2, width=50, text="", style="BW.TLabel")
+        self.label2.grid(column=0, row=2, columnspan=2, padx=4, pady=4)
+  
         # Button
         ## button1
-        self.button1 = ttk.Button(self.label_frame1, text="OK", command=self.button1_command1, style="BW.TButton")
-        self.button1.grid(column=0, row=1, padx=4, pady=4)
+        self.button1 = ttk.Button(self.frame1, text="OK", command=self.button1_command1, style="BW.TButton")
+        self.button1.grid(column=0, row=3, columnspan=2, padx=4, pady=4, sticky="W")
         ## button2
-        self.button2 = ttk.Button(self.label_frame2, text="OK", command=self.button2_command1, style="BW.TButton")
-        self.button2.grid(column=0, row=1, padx=4, pady=4)
-        
+        self.button2 = ttk.Button(self.frame2, text="OK", command=self.button2_command1, style="BW.TButton")
+        self.button2.grid(column=0, row=3, columnspan=2, padx=4, pady=4, sticky="W")
+   
         # Entry
         ## entry1
         self.entry1_string_var1 = tk.StringVar()
-        self.entry1 = ttk.Entry(self.label_frame1, width=50, textvariable=self.entry1_string_var1)
-        self.entry1.grid(column=0, row=0)
+        self.entry1 = ttk.Entry(self.frame1, width=50, textvariable=self.entry1_string_var1)
+        self.entry1.grid(column=0, row=1, columnspan=2)
         ### entry1-ga focus-ni o'ratish.
         self.entry1.focus()
         ## entry2
         self.entry2_string_var1 = tk.StringVar()
-        self.entry2 = ttk.Entry(self.label_frame2, width=50, textvariable=self.entry2_string_var1)
-        self.entry2.grid(column=0, row=0)
+        self.entry2 = ttk.Entry(self.frame2, width=50, textvariable=self.entry2_string_var1)
+        self.entry2.grid(column=0, row=1, columnspan=2)
         ### entry2-ga focus-ni o'ratish.
         self.entry2.focus()
+     
+        # Radiobutton
+        self.radiobutton_var = tk.IntVar()
+        ## radiobutton1
+        self.radiobutton1 = tk.Radiobutton(self.frame1, text="Klinik Terminologiya", background="#DAD8DC", variable=self.radiobutton_var, value=1, command=self.radiobutton_command1)
+        self.radiobutton1.grid(column=0, row=4, sticky="W")
+        ## radiobutton2
+        self.radiobutton2 = tk.Radiobutton(self.frame1, text="O'zbek -> Lotin", background="#DAD8DC", variable=self.radiobutton_var, value=2, command=self.radiobutton_command1)
+        self.radiobutton2.grid(column=0, row=5, sticky="W")
+        ## radiobutton3
+        self.radiobutton3 = tk.Radiobutton(self.frame1, text="3-xil Terminlar", background="#DAD8DC", variable=self.radiobutton_var, value=3, command=self.radiobutton_command1)
+        self.radiobutton3.grid(column=0, row=6, sticky="W")
+        ## radiobutton4
+        self.radiobutton4 = tk.Radiobutton(self.frame1, text="Anotomik Terminlar", background="#DAD8DC", variable=self.radiobutton_var, value=4, command=self.radiobutton_command1)
+        self.radiobutton4.grid(column=0, row=7, sticky="W")
 
         # Menu
         # Menyu qatori-ni yaratish.
@@ -210,6 +218,19 @@ class Gui():
         self.menyu_qatori.add_cascade(label="Yordam", menu=self.yordam_menyu)
         self.yordam_menyu.add_command(label="Haqida", command=self._msgBox)
  
+    def radiobutton_command1(self):
+        x = self.radiobutton_var.get()
+        if x == 1:
+            pass
+        elif x == 2:
+            pass
+        elif x == 3:
+            pass
+        elif x == 4:
+            pass
+        else:
+            pass
+
     def button1_command1(self):
         if KOD:
             natija = lotinchadan_ozbekchaga(self.entry1_string_var1.get(), LUGAT)
@@ -236,7 +257,7 @@ class Gui():
         except:
             pass
         else:
-            if type(kod2) == str and type(int(kod1)) == int:
+            if type(kod2) == str and type(int(kod1)) == int and self.radiobutton_var.get() == 4:
                 path_to_the_text_file2 = "./file_to_activate_the_program.txt"
                 with open(path_to_the_text_file2, "w") as text_file2:
                     text_file2.write("{}{}".format(kod2, kod1))
