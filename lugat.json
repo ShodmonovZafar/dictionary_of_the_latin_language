@@ -1,0 +1,23 @@
+{
+    "lugat":[
+        {
+            "so'z turkumi" : "ot",
+            "turlanishi":1,
+            "o'zbekchaga tarjimasi" : "pufak",
+            "bosh kelishik birlikda to'liq" : "vesica",
+            "qaratqich kelishigi birlikdagi qo'shimchasi" : "ae",
+            "rodi" : "f"},
+
+        {
+            "so'z turkumi" : "sifat",
+            "o'zbekchaga tarjimasi" : "keng",
+            "guruhi":1 
+
+        },
+        {
+            "so'z turkumi":"sifat",
+            "o'zbekchaga tarjimasi":"bo'g'imga tegishli",
+            "guruhi":2
+        }
+    ]
+}

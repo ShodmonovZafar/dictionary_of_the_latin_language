@@ -59,7 +59,7 @@ class Sozlamalar:
         self.asosiy_oyna_kengligi = 370
 
         # Orqa fon sozlamalari.
-        self.asosiy_oyna_orqa_fon_rangi = "#1B1C21"
+        self.asosiy_oyna_orqa_fon_rangi = "#32E424"  #"#1B1C21"
 
         # O'zgarmaslar.
 
@@ -128,16 +128,16 @@ class Gui():
         # Style
         ## frame
         self.frame1_style1 = ttk.Style()
-        self.frame1_style1.configure("BM.TFrame", background="#DAD8DC")
+        self.frame1_style1.configure("BM.TFrame", background="#CF4AC6")
         ## notebook
         self.notebook1_style1 = ttk.Style()
-        self.notebook1_style1.configure("BM.TNotebook", background="#343A37")
+        self.notebook1_style1.configure("BM.TNotebook", background="#32E4ED") #"#343A37"
         ## label
         self.label1_style1 = ttk.Style()
-        self.label1_style1.configure("BW.TLabel", foreground="white", background="#15150F", textcollor="#000000")
+        self.label1_style1.configure("BW.TLabel", foreground="black", background="#ffffff", textcollor="#000000")
         ## button
         self.button1_style1 = ttk.Style()
-        self.button1_style1.configure("BW.TButton", background="#050503", foreground="black", collor="red")
+        self.button1_style1.configure("BW.TButton", background="#050503", foreground="black")
         
         # Notebook
         ## notebook1
@@ -151,11 +151,6 @@ class Gui():
         self.frame2 = ttk.Frame(self.notebook1, padding=10, style="BM.TFrame")
         self.notebook1.add(self.frame2, text=soz.frame2_nomi)
         self.notebook1.pack(expand=1, fill="both")
-
-        # # LabelFrame
-        # ## label_frame1
-        # self.label_frame1 = ttk.LabelFrame(self.frame1, style="BM.TLabelframe")
-        # self.label_frame1.grid(column=0, row=1, padx=10, pady=10)
 
         # Label
         ## label1
@@ -190,16 +185,16 @@ class Gui():
         # Radiobutton
         self.radiobutton_var = tk.IntVar()
         ## radiobutton1
-        self.radiobutton1 = tk.Radiobutton(self.frame1, text="Klinik Terminologiya", background="#DAD8DC", variable=self.radiobutton_var, value=1, command=self.radiobutton_command1)
+        self.radiobutton1 = tk.Radiobutton(self.frame1, text="Klinik Terminologiya", foreground="#322424",activebackground="#4BF23A", background="#CF4AC6", variable=self.radiobutton_var, value=1, command=self.radiobutton_command1)
         self.radiobutton1.grid(column=0, row=4, sticky="W")
         ## radiobutton2
-        self.radiobutton2 = tk.Radiobutton(self.frame1, text="O'zbek -> Lotin", background="#DAD8DC", variable=self.radiobutton_var, value=2, command=self.radiobutton_command1)
+        self.radiobutton2 = tk.Radiobutton(self.frame1, text="O'zbek -> Lotin",foreground="#322424",activebackground="#4BF23A", background="#CF4AC6", variable=self.radiobutton_var, value=2, command=self.radiobutton_command1)
         self.radiobutton2.grid(column=0, row=5, sticky="W")
         ## radiobutton3
-        self.radiobutton3 = tk.Radiobutton(self.frame1, text="3-xil Terminlar", background="#DAD8DC", variable=self.radiobutton_var, value=3, command=self.radiobutton_command1)
+        self.radiobutton3 = tk.Radiobutton(self.frame1, text="3-xil Terminlar", foreground="#322424",activebackground="#4BF23A",background="#CF4AC6", variable=self.radiobutton_var, value=3, command=self.radiobutton_command1)
         self.radiobutton3.grid(column=0, row=6, sticky="W")
         ## radiobutton4
-        self.radiobutton4 = tk.Radiobutton(self.frame1, text="Anotomik Terminlar", background="#DAD8DC", variable=self.radiobutton_var, value=4, command=self.radiobutton_command1)
+        self.radiobutton4 = tk.Radiobutton(self.frame1, text="Anotomik Terminlar",foreground="#322424", activebackground="#4BF23A",background="#CF4AC6", variable=self.radiobutton_var, value=4, command=self.radiobutton_command1)
         self.radiobutton4.grid(column=0, row=7, sticky="W")
 
         # Menu
