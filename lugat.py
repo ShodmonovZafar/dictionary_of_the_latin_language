@@ -14,7 +14,7 @@ LUGAT = {
     ("humerus","i","m","ot") : "yelka suyagi", 
     ("ileum","i","n","ot") : "ichak", 
     ("jejunum","i","n","ot") : "ingichka ichak", 
-    ("labium","ii","n","ot") : "lab",
+    ("labium","i","n","ot") : "lab",
     ("musculus","i","m","ot") : ("mushak", "muskul"), 
     ("nasus","i","m","ot") : "burun", 
     ("orbita","ae","f","ot") : "ko'z kosasi", 
