@@ -1,14 +1,6 @@
-from lugat import LUGAT
-OT = {}
-for i in LUGAT.keys():
-    for j in i:
-        if j == "ot":
-            OT[i] = LUGAT[i]
+import json
+import lugat
 
-with open("./OT.txt", "w") as f:
-    for i in OT.keys():
-        if type(OT[i]) == str:
-            s = '{} : "{}", '.format(i, OT[i])
-        else:
-            s = '{} : {}, '.format(i, OT[i])
-        f.write(s)
+path1 = "json_files/json_file1.json"
+with open(path1, "w") as f:
+    json.dump(lugat.data1, f, indent=4, sort_keys=True)

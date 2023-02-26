@@ -1,4 +1,4 @@
-LUGAT = {   
+{"LUGAT" = {   
     ("homo", "inis", "m", "ot") : "odam",
     ("vesica", "ae", "f", "ot") : "pufak",
     ("fundus", "i", "m", "ot") : "tub",
@@ -198,55 +198,4 @@ LUGAT = {
     ("buccalis","e","sifat"):"lunju",
     ("infraorbitalis","e","sifat"):"ko'z kosasi ostiga oid",
     ("mollis","e","sifat"):"yumshoq",
-    ("bacca","ae","f","ot"):("meva", "o'simlik"),
-    ("barba","ae","f","ot"):"saqol", 
-    ("basis","is","f","ot"):"asos", 
-    ("bene","sifat"):"yaxshi", 
-    ("biliaris","e","ot"):"o'tga oid", 
-    ("bilifer","era","erum","ot"):"o'tga oid", 
-    ("biliosus","a","um","ot"):"o't moddasiga boy", 
-    ("bivalens","entis","sifat"):"ikki valentli", 
-    ("biventer","tra","trum","sifat"):"ikki qorinli", 
-    ("bolus","i","f","ot"):"qum", 
-    ("bonum","i","n","sifat"):"yaxshilik", 
-    ("bonus","a","um","sifat"):"yaxshi", 
-    ("boricus","a","um","ot"):"borotga oid", 
-    ("brachium","i","n","ot"):"yelka", 
-    ("brevis","e","sifat"):"qisqa", 
-    ("bronchialis","e","ot"):"bronxga tegishli", 
-    ("bronchus","i","m","ot"):"bronx", 
-    ("bucca","ae","f","sifat"):"lunj", 
-    ("buccalis","e","sifat"):"lunji(si)", 
-    ("bulbus","i","m","ot"):"soqqa, piyoz boshi", 
-    ("bulbus oculli","ot"):"ko'z soqqasi", 
-    ("bulla","ae","f","ot"):"pufakchaga", 
-    ("bursa","ae","f","ot"):("sumka", "xalta") 
-}
-
-def f(s:dict)->list:
-    rlist = []
-    for i in s.keys():
-        for j in i:
-            if j == "ot":
-                m = {}
-                m["lug'at shakli"] = list(i)[:-1]
-                if type(s[i]) == str:
-                    m["o'zbekcha"] = [s[i]]
-                else:
-                    m["o'zbekcha"] = list(s[i])
-                rlist.append(m)
-    return rlist
-
-
-
-data1 = {
-    "ot":{
-        "lug'at":f(LUGAT),
-        "bo'limi":1
-    },
-    "sifat":2,
-    "son":3,
-    "fe'l":4,
-    "ravish":5,
-    "olmosh":6
-}
+}}
