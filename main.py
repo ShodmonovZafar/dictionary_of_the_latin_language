@@ -1,8 +1,25 @@
+import json
 import tkinter as tk
 from tkinter import ttk
+from tkinter import scrolledtext
 from tkinter import Menu
 from tkinter import messagebox as msg
 from pathlib import Path
+
+
+# functions
+def ozbek_lotin(my_list: list, s: str, lotin=False) -> dict or int:
+    if lotin:
+        for item in my_list:
+            for j in item["lotincha"]:
+                if s == j:
+                    return item
+        return 0
+    for item in my_list:
+        for j in item["o'zbekcha"]:
+            if s == j:
+                return item
+    return 0
 
 KOD = False
 path_to_the_text_file = Path(".")
@@ -1550,6 +1567,8 @@ ot = """[
 ]
 """
 
+OT = json.loads(ot)
+
 class Sozlamalar:
 
     def __init__(self):
@@ -1703,16 +1722,25 @@ class Gui():
             pass
         else:
             pass
-
+    
     def button1_command1(self):
         if KOD:
-            print("lotinchadan uzbekchag")
+            x = ozbek_lotin(OT, self.entry1_string_var1.get(), True)
+            if type(x) == dict:
+                self.label1.configure(text="{}".format(x))
+            else:
+                self.label1.configure(text="Siz kiritgan so'z topilmadi!")
         else:
             msg.showinfo("Eslatma!", "Dasturdan foydalanish uchun 'Litsenziya' olish kerak.\n 'Litsenziya' olish uchun +998-99-772-33-28 nomer bilan yoki uzbekdasturchisiman@gmail.com pochta manzili bilan bo'glaning.")
                
     def button2_command1(self):
         if KOD:
-            print("o'zbekchadan lotinchaga")
+            x = ozbek_lotin(OT, self.entry2_string_var1.get())
+            if type(x) == dict:
+                self.label2.configure(text="{}".format(x))
+            else:
+                self.label2.configure(text="Siz kiritgan so'z topilmadi!")
+            pass
         else:
             msg.showinfo("Eslatma!", "Dasturdan foydalanish uchun 'Litsenziya' olish kerak.\n 'Litsenziya' olish uchun +998-99-772-33-28 nomer bilan yoki uzbekdasturchisiman@gmail.com pochta manzili bilan bo'glaning.")
          
